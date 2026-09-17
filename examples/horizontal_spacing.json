@@ -1,0 +1,41 @@
+{
+  "verdict": "PASS",
+  "target_mm": 2.5,
+  "tolerance_mm": 0.5,
+  "canvas_mm": [
+    167.4971666666667,
+    159.76476694306027
+  ],
+  "pairs": [
+    {
+      "panels": [
+        0,
+        1
+      ],
+      "direction": "horizontal",
+      "gap_mm": 2.500000000000023,
+      "exception_reason": null,
+      "passed": true
+    },
+    {
+      "panels": [
+        2,
+        3
+      ],
+      "direction": "horizontal",
+      "gap_mm": 2.5000000000000377,
+      "exception_reason": null,
+      "passed": true
+    },
+    {
+      "panels": [
+        4,
+        5
+      ],
+      "direction": "horizontal",
+      "gap_mm": 2.5000000000000377,
+      "exception_reason": null,
+      "passed": true
+    }
+  ]
+}
