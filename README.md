@@ -1,59 +1,32 @@
-# geology-figure
+# EngGeo Figure v1.0
 
-`geology-figure` is a Codex skill for publication-grade geology, geotechnical, and landslide figures in a calibrated Origin-inspired Python/Matplotlib style.
+Personal Python/Matplotlib figure skill for engineering geology, geotechnics and landslides. Replaces `geology-figure`; invoke as `$enggeo-figure`.
 
-It standardizes matrix notation, journal widths, typography, boxed axes, colour semantics, legend placement, dual/triple axes, source-data boundaries, alignment checks, and export formats.
+## Current conventions
 
-## Core conventions
+- Content-sized layouts, including arbitrary rows × columns; 89/180 mm are reference widths, not mandatory widths.
+- Measure decorated content gaps: normally 2–3 mm (target 2.5 mm). Audit alignment separately. Include twins, legends and colour bars; resize the canvas after compacting.
+- DejaVu Sans first, Arial second; black ordinary text. Ticks 8 pt, axis labels 8.5–9 pt, panel letters 9.5–10 pt. These already include the agreed 1 pt increase.
+- Deep blue `#003F88` and saturated category colours with stable variable mappings; no fixed hazard-colour semantics.
+- Outward ticks, boxed Cartesian axes, no default grid, no titles or footer notes.
+- Markers: black 0.6 pt edges, opaque fills with 25% white mixed into the series colour; ordinary size 4–5 pt.
+- Dual/triple axes colour-match variable labels, ticks and corresponding spine. Pie/donut charts use flat circles and external readable labels.
+- Editable SVG only by default, white background, tight artwork bounds with 1.5 mm padding. Other formats require an explicit request.
+- Preserve supplied data; clearly identify synthetic demonstrations outside the figure.
 
-- Layout notation is `rows x columns`: `1 x 2` is horizontal and `2 x 1` is vertical.
-- Simple `2 x 1` figures default to 89 mm; horizontal or complex multi-axis figures default to 180 mm.
-- Four-sided boxed axes, inward ticks, white backgrounds, and no default grid.
-- Blue indicates neutral/baseline states, orange transition, and red the strongest response or hazard.
-- Dual and triple y axes are allowed when all variables share one x basis and every axis is colour- and unit-matched.
-- Formal figures contain no overall title, palette card, watermark, or decorative banner.
+## Install and verify
 
-## Included resources
-
-- `SKILL.md`: Skill entrypoint.
-- `references/style-contract.md`: reviewed personal visual rules.
-- `references/chart-recipes.md`: geology-specific plot selection.
-- `references/data-and-qa.md`: data-integrity and QA contract.
-- `scripts/geology_style.py`: reusable Matplotlib style, dimensions, alignment audit, multi-axis helpers, and export bundle.
-- `scripts/calibration_demo.py`: deterministic installation and style test.
-
-## Installation
-
-Clone the repository into the Codex skills directory so the final path is:
-
-```text
-~/.codex/skills/geology-figure/SKILL.md
-```
-
-Install plotting dependencies with:
+Place this repository in `~/.codex/skills/enggeo-figure/`. Archive the previous `geology-figure` folder outside the skills directory to avoid duplicate discovery.
 
 ```bash
 python -m pip install -r requirements.txt
-```
-
-Run the deterministic calibration test with:
-
-```bash
 python scripts/calibration_demo.py --output examples/generated
 ```
 
-The calibration output is illustrative and must not be used as scientific evidence.
+`SKILL.md` is the entrypoint; `references/style-contract.md` owns visual rules. `scripts/enggeo_style.py` supplies styling, marker, multi-axis, alignment, spacing and export helpers. The calibration script exports an SVG, synthetic source data and measured QA records.
 
-## Preview
+## Synthetic calibration example
 
-### `2 x 1` vertical single-column layout
+![Six chart types with compact spacing](examples/Chart_types_compact_EN.svg)
 
-![Vertical 2 x 1 preview](examples/vertical-2x1-89mm.png)
-
-### Three-y-axis layout
-
-![Triple-axis preview](examples/triple-axis-180mm.png)
-
-### Complex vertical multi-axis layout
-
-![Complex vertical preview](examples/vertical-2x1-complex-180mm.png)
+This preview contains generated demonstration data only; it is not scientific evidence.
