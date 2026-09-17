@@ -1,7 +1,7 @@
 interface:
-  display_name: "Geology Figure"
+  display_name: "EngGeo Figure"
   short_description: "Origin-style figures for geology and landslide research"
-  brand_color: "#3767A8"
-  default_prompt: "Use $geology-figure to create a publication-ready Origin-style figure from my geology data."
+  brand_color: "#003F88"
+  default_prompt: "Use $enggeo-figure to create a publication-ready figure using the EngGeo Figure v1.0 rules from my geology data."
 policy:
   allow_implicit_invocation: true
